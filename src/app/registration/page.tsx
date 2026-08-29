@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useState } from "react";
 
 const feeStructure = [
   {
@@ -37,6 +38,8 @@ const instructions = [
 ];
 
 export default function Registration() {
+  const [isQREnlarged, setIsQREnlarged] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar firstOnly />
@@ -129,13 +132,17 @@ export default function Registration() {
                   <div className="mt-6 pt-4 border-t border-zinc-200/60 flex flex-col items-center gap-4 w-full">
                     {/* QR Code Container (Fixed Height) */}
                     <div className="flex items-center justify-center h-32">
-                      <div className="relative w-28 h-28 border border-zinc-200 rounded-lg overflow-hidden bg-white p-1.5 shadow-sm">
+                      <button
+                        onClick={() => setIsQREnlarged(true)}
+                        className="relative w-28 h-28 border border-zinc-200 rounded-lg overflow-hidden bg-white p-1.5 shadow-sm hover:border-[#c1121f]/50 hover:shadow-md cursor-pointer transition duration-150 focus:outline-none"
+                        aria-label="Enlarge QR Code"
+                      >
                         <img
                           src="/images/payment_qr_code.jpg"
                           alt="Payment QR Code"
                           className="w-full h-full object-contain"
                         />
-                      </div>
+                      </button>
                     </div>
 
                     {/* Payment Link (Full Width) */}
@@ -208,6 +215,35 @@ export default function Registration() {
       </main>
 
       <Footer />
+
+      {/* QR Code Modal Lightbox */}
+      {isQREnlarged && (
+        <div
+          onClick={() => setIsQREnlarged(false)}
+          className="fixed inset-0 bg-black/80 z-[200] flex items-center justify-center backdrop-blur-sm cursor-pointer select-none"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white p-4 rounded-2xl border border-zinc-200 shadow-2xl relative max-w-[90%] max-h-[80%] aspect-square flex flex-col items-center justify-center animate-in zoom-in-95 duration-200"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsQREnlarged(false)}
+              className="absolute -top-3 -right-3 h-8 w-8 bg-[#c1121f] text-white rounded-full flex items-center justify-center font-bold shadow-md hover:bg-red-800 transition duration-150 border-2 border-white focus:outline-none"
+            >
+              ✕
+            </button>
+            <img
+              src="/images/payment_qr_code.jpg"
+              alt="Payment QR Code"
+              className="w-80 h-80 sm:w-96 sm:h-96 object-contain"
+            />
+            <span className="text-[10px] font-black tracking-wider text-zinc-500 uppercase mt-4">
+              Scan to Pay / Tap anywhere to close
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

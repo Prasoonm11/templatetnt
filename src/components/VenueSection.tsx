@@ -26,8 +26,10 @@ export default function VenueSection({ isMobile = false }: VenueSectionProps) {
             <video
               src="/images/Videos/MUJ_Venue.webm"
               controls
+              autoPlay
               muted
               loop
+              playsInline
               className="w-full h-full object-cover"
             />
           </div>
@@ -89,6 +91,7 @@ export default function VenueSection({ isMobile = false }: VenueSectionProps) {
               autoPlay
               muted
               loop
+              playsInline
               className="w-full h-full object-cover"
             />
           </div>

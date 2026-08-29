@@ -136,15 +136,6 @@ export default function JaipurSection({ isMobile = false }: JaipurSectionProps) 
           <p>
             Seamlessly blending its rich historical heritage with modern amenities, Jaipur offers a captivating setting for both tourism and professional events. Its warm hospitality, stunning architecture, and lively atmosphere make it an ideal destination, providing an unforgettable backdrop for our conference.
           </p>
-          
-          <div className="bg-zinc-50 border border-zinc-150 p-4 rounded-lg flex items-center gap-3 mt-2">
-            <span className="text-yellow-600 shrink-0 select-none">
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-              </svg>
-            </span>
-            <span className="text-xs font-black text-black">FEBRUARY WEATHER: 15°C - 28°C (PLEASANT)</span>
-          </div>
 
           {/* Mobile slider in 16:9 ratio */}
           <div className="flex flex-col items-center mt-6">

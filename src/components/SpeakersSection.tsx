@@ -183,11 +183,11 @@ function SpeakerCard({ speaker, index }: { speaker: Speaker; index: number }) {
       {/* Information panel */}
       <div className="relative z-10 -ml-7 flex flex-1 flex-col justify-between bg-[#c1121f] px-5 py-4.5 pl-9 text-white [clip-path:polygon(20px_0%,100%_0%,100%_100%,0%_100%)]">
         <div>
-          <h3 className="max-w-[210px] text-base font-black uppercase leading-tight tracking-tight mt-1.5">
+          <h3 className="max-w-[210px] text-xs sm:text-base font-black uppercase leading-tight tracking-tight mt-1.5">
             {speaker.name}
           </h3>
 
-          <p className="mt-1.5 max-w-[210px] text-[10px] font-bold leading-snug text-red-50/90">
+          <p className="mt-1.5 max-w-[210px] text-[8px] sm:text-[10px] font-bold leading-snug text-red-50/90">
             {speaker.designation}
           </p>
         </div>
@@ -234,29 +234,9 @@ export default function SpeakersSection({
         </h2>
         <div className="mb-6 mt-3 h-[3px] w-12 bg-[#c1121f]" />
 
-        <div className="grid grid-cols-1 gap-3">
+        <div className="grid grid-cols-1 gap-5">
           {speakers.map((speaker, index) => (
-            <article
-              key={speaker.name}
-              className="relative flex items-center gap-3 overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm"
-            >
-              <div className="absolute left-0 top-0 h-full w-1 bg-[#c1121f]" />
-
-              <SpeakerImage speaker={speaker} mobile />
-
-              <div className="min-w-0 flex-grow pr-1">
-                <h4 className="mt-1 truncate text-xs font-black uppercase text-black">
-                  {speaker.name}
-                </h4>
-                <p className="mt-0.5 text-[9px] font-bold leading-snug text-zinc-500">
-                  {speaker.designation}
-                </p>
-              </div>
-
-              <div className="ml-auto shrink-0 rounded-full bg-zinc-100 p-2 text-[#c1121f]">
-                <ArrowUpRight />
-              </div>
-            </article>
+            <SpeakerCard key={speaker.name} speaker={speaker} index={index} />
           ))}
         </div>
       </article>

@@ -300,14 +300,14 @@ export default function Hero() {
           href="https://jaipur.manipal.edu/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex h-48 w-11 flex-col items-center justify-center gap-1.5 rounded-l-xl border-y border-l border-white/20 bg-[#c1121f] text-white shadow-lg transition duration-200 hover:bg-red-800 active:scale-95"
+          className="group flex h-32 w-8 md:h-48 md:w-11 flex-col items-center justify-center gap-1 border-y border-l border-white/20 bg-[#c1121f] text-white shadow-lg transition duration-200 hover:bg-red-800 active:scale-95 rounded-l-lg"
         >
-          <span className="rotate-180 font-sans text-[10px] font-black tracking-wider uppercase [writing-mode:vertical-lr]">
+          <span className="rotate-180 font-sans text-[7.5px] md:text-[10px] font-black tracking-wider uppercase [writing-mode:vertical-lr]">
             Inquire about MUJ
           </span>
 
           <svg
-            className="mt-1 h-4 w-4 text-white/80 transition group-hover:scale-110"
+            className="mt-0.5 h-3 w-3 md:h-4 md:w-4 text-white/80 transition group-hover:scale-110"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -324,14 +324,14 @@ export default function Hero() {
         {/* Inquire about Conference */}
         <button
           onClick={() => setIsModalOpen(true)}
-          className="group flex h-60 w-11 flex-col items-center justify-center gap-1.5 rounded-l-xl border-y border-l border-white/20 bg-[#c1121f] text-white shadow-lg transition duration-200 hover:bg-red-800 active:scale-95 focus:outline-none"
+          className="group flex h-40 w-8 md:h-60 md:w-11 flex-col items-center justify-center gap-1 border-y border-l border-white/20 bg-[#c1121f] text-white shadow-lg transition duration-200 hover:bg-red-800 active:scale-95 focus:outline-none rounded-l-lg"
         >
-          <span className="rotate-180 font-sans text-[10px] font-black tracking-wider uppercase [writing-mode:vertical-lr]">
+          <span className="rotate-180 font-sans text-[7.5px] md:text-[10px] font-black tracking-wider uppercase [writing-mode:vertical-lr]">
             Inquire about Conference
           </span>
 
           <svg
-            className="mt-1 h-4 w-4 text-white/80 transition group-hover:scale-110"
+            className="mt-0.5 h-3 w-3 md:h-4 md:w-4 text-white/80 transition group-hover:scale-110"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

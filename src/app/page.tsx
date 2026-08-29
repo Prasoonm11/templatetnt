@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ImportantDatesRow from "@/components/ImportantDatesRow";
 import ConferenceDetails from "@/components/ConferenceDetails";
 import Footer from "@/components/Footer";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Navbar secondOnly />
       <main className="flex-grow">
         <Hero />
+        <ImportantDatesRow />
         <ConferenceDetails />
       </main>
       

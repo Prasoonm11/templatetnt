@@ -49,9 +49,9 @@ export default function GuidelinesForAuthors() {
                     href="https://cmt3.research.microsoft.com/TrustNet2026"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[#c1121f] text-white font-black px-5 py-2.5 rounded-lg hover:bg-red-800 transition duration-150 shadow-md hover:shadow-lg uppercase tracking-wider text-xs active:scale-95 mb-4 inline-block"
+                    className="bg-[#c1121f] text-white font-black px-6 py-3 rounded-lg hover:bg-red-800 transition duration-150 shadow-md hover:shadow-lg uppercase tracking-wider text-xs active:scale-95 mb-4 inline-block max-w-full text-center truncate"
                   >
-                    https://cmt3.research.microsoft.com/TrustNet2026
+                    Submit Paper via Microsoft CMT
                   </a>
                   <p className="text-xs text-zinc-500 max-w-xl leading-relaxed">
                     The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.

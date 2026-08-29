@@ -23,13 +23,14 @@ export default function AboutSection({ isMobile = false }: AboutSectionProps) {
           <p>
             Discussions and research will focus on <strong>Cybersecurity</strong> and <strong>Artificial Intelligence (AI)</strong>, contributing to both the <strong>United Nations Sustainable Development Goals (SDGs)</strong> and <strong>Digital India</strong> vision.
           </p>
-          <div className="relative w-full h-36 mt-2 rounded-lg overflow-hidden">
+          <div className="relative w-full h-28 mt-2 rounded-lg overflow-hidden flex items-center justify-center">
             <Image
               src="/images/graphics/about-banner-2.png"
               alt="About Conference Banner"
               fill
+              priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-              className="object-cover"
+              className="object-contain object-center"
             />
           </div>
         </div>
@@ -46,7 +47,7 @@ export default function AboutSection({ isMobile = false }: AboutSectionProps) {
         <div className="w-16 h-[3px] bg-[#c1121f] mt-4 mb-2" />
       </div>
 
-      <div className="flex flex-col gap-4 font-sans text-sm md:text-base text-zinc-700 leading-relaxed font-normal pr-2">
+      <div className="flex flex-col gap-3 font-sans text-xs md:text-[13.5px] text-zinc-700 leading-relaxed font-normal pr-2">
         <p>
           The <strong className="text-black font-extrabold">Department of Computer Science and Engineering, Manipal University Jaipur</strong>, is pleased to announce that it will host the <strong className="text-[#c1121f] font-extrabold">International Conference on Trusted Networks and Intelligent Systems (TrustNet 2026)</strong> on <strong className="text-black font-extrabold">February 16–17, 2026</strong>. This conference is centered around a shared global goal: creating a safe, smart, and sustainable digital future.
         </p>
@@ -58,13 +59,14 @@ export default function AboutSection({ isMobile = false }: AboutSectionProps) {
         </p>
         
         {/* Banner Graphic Image */}
-        <div className="relative w-full h-40 md:h-44 mt-2 rounded-lg overflow-hidden shrink-0">
+        <div className="relative w-full h-32 md:h-44 mt-3 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
           <Image
             src="/images/graphics/about-banner-2.png"
             alt="About Conference Banner"
             fill
+            priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-            className="object-cover"
+            className="object-contain object-center"
           />
         </div>
       </div>

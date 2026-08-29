@@ -209,7 +209,7 @@ export default function ConferenceDetails() {
   };
 
   return (
-    <section className="bg-white mt-10 pt-16 pb-4 md:pt-24 md:pb-6 border-b border-white relative">
+    <section className="bg-white mt-4 pt-2 pb-4 md:pt-4 md:pb-6 border-b border-white relative">
       <div className="mx-auto max-w-7xl px-3 md:px-6">
         
         {/* Desktop View: Interactive 3D Arc Carousel Layout */}
@@ -289,12 +289,19 @@ export default function ConferenceDetails() {
         {/* Mobile & Tablet View: Stacks sections vertically for readability */}
         <div className="lg:hidden flex flex-col gap-16">
           <AboutSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <AboutMUJSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <TracksSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <SpeakersSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <PublicationsSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <PartnersSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <JaipurSection isMobile />
+          <div className="border-t border-zinc-200/80 w-[90%] mx-auto my-2" />
           <VenueSection isMobile />
         </div>
 
