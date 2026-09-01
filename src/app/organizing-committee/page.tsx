@@ -5,38 +5,77 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Safe Image Fallback Component
-interface CommitteeImageProps {
-  src: string;
+interface CommitteeMember {
   name: string;
+  role: string;
+  designation: string;
   initials: string;
+  image: string;
 }
 
-function CommitteeImage({ src, name, initials }: CommitteeImageProps) {
+function CommitteeCard({
+  member,
+  index,
+}: {
+  member: CommitteeMember;
+  index: number;
+}) {
   const [hasError, setHasError] = useState(false);
 
   return (
-    <div className="relative w-full aspect-[4/5] bg-zinc-950 overflow-hidden border-[3px] border-[#c1121f] shadow-inner">
-      {hasError ? (
-        <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-zinc-800 to-zinc-950 text-white select-none">
-          <span className="font-serif text-3xl font-black tracking-wider text-red-200">
-            {initials}
-          </span>
-          <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest mt-2">
-            Photo Pending
-          </span>
+    <article className="group relative flex flex-col items-center bg-white border border-zinc-200/90 rounded-[22px] p-3.5 sm:p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.09)] hover:border-[#c1121f]/35 hover:-translate-y-1 transition-all duration-300 select-none overflow-hidden">
+      
+      {/* Top Role Header */}
+      <div className="w-full flex items-center justify-between mb-3 border-b border-zinc-100 pb-2">
+        <span className="font-mono text-[9px] font-black text-[#c1121f] tracking-wider uppercase truncate max-w-[130px]">
+          {member.role}
+        </span>
+        <span className="font-mono text-[9px] font-bold text-zinc-400">
+          {index + 1 < 10 ? `0${index + 1}` : index + 1}
+        </span>
+      </div>
+
+      {/* Portrait Stage Canvas (matching Speaker frame style) */}
+      <div className="relative w-full flex items-end justify-center py-2.5 bg-[#f1f1ef] rounded-2xl overflow-hidden mb-3">
+        {/* Background decorative circular halo */}
+        <div className="absolute -left-6 top-2 h-16 w-16 rounded-full border border-[#c1121f]/10 pointer-events-none" />
+        <div className="absolute bottom-1 right-1 h-12 w-12 rounded-full bg-[#c1121f]/5 pointer-events-none" />
+
+        {/* Arch-shaped Portrait Frame */}
+        <div className="relative z-10 h-[175px] w-[130px] sm:h-[195px] sm:w-[145px] overflow-hidden rounded-t-[70px] rounded-b-[14px] border-[3.5px] border-white shadow-[0_6px_18px_rgba(0,0,0,0.12)] bg-zinc-200">
+          {hasError || !member.image ? (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-200 text-zinc-600 select-none">
+              <span className="font-serif text-2xl sm:text-3xl font-black tracking-wider text-[#c1121f]">
+                {member.initials}
+              </span>
+              <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest mt-1">
+                Photo Pending
+              </span>
+            </div>
+          ) : (
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              sizes="200px"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              onError={() => setHasError(true)}
+            />
+          )}
         </div>
-      ) : (
-        <Image
-          src={src}
-          alt={name}
-          fill
-          sizes="280px"
-          className="object-cover"
-          onError={() => setHasError(true)}
-        />
-      )}
-    </div>
+      </div>
+
+      {/* Name and Designation */}
+      <div className="w-full text-center mt-0.5 flex flex-col">
+        <h3 className="font-sans text-xs sm:text-[13px] font-black text-black uppercase tracking-tight leading-snug">
+          {member.name}
+        </h3>
+        <p className="font-sans text-[9.5px] sm:text-[11px] text-zinc-500 font-semibold leading-tight mt-1">
+          {member.designation}
+        </p>
+      </div>
+
+    </article>
   );
 }
 
@@ -297,34 +336,9 @@ export default function OrganizingCommittee() {
           
           {/* Primary Committee Frames */}
           <section className="flex flex-col">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {primaryCommittee.map((member, index) => (
-                <div key={index} className="flex flex-col items-center select-none">
-                  {/* Image container with Red Border */}
-                  <div className="w-full relative">
-                    <CommitteeImage 
-                      src={member.image} 
-                      name={member.name} 
-                      initials={member.initials} 
-                    />
-                    {/* Floating Name Banner Overlay at bottom of image */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#c1121f] text-white py-1.5 px-3 text-center border-t-[3px] border-[#c1121f]">
-                      <span className="block font-sans text-[10px] md:text-xs font-black tracking-wide uppercase truncate">
-                        {member.name}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {/* Role and Designation */}
-                  <div className="text-center mt-3">
-                    <h3 className="font-sans text-xs md:text-sm font-black text-black uppercase tracking-wider">
-                      {member.role}
-                    </h3>
-                    <p className="font-sans text-[10px] md:text-xs text-zinc-500 font-semibold leading-tight mt-0.5">
-                      {member.designation}
-                    </p>
-                  </div>
-                </div>
+                <CommitteeCard key={index} member={member} index={index} />
               ))}
             </div>
           </section>

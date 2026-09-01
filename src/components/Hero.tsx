@@ -59,9 +59,8 @@ export default function Hero() {
     const updateHeroScale = () => {
       const viewportWidth = window.innerWidth;
 
-      // Original design width = 1440px.
-      // Never enlarge the design beyond its original size.
-      const scale = Math.min(viewportWidth / 1440, 1);
+      // Scale proportionally with viewport width to span 100% full width edge-to-edge
+      const scale = viewportWidth / 1440;
 
       setHeroScale(scale);
     };
